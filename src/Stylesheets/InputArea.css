@@ -1,0 +1,28 @@
+.input-area-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 700px;
+  justify-content: center;
+  margin: 0 auto;
+  margin-bottom: 25px;
+}
+
+.task-input {
+  width: 500px;
+  height: 25px;
+  padding: 8px;
+  margin-right: 5px;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  font-size: large;
+}
+
+.add-task-button {
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 3px;
+  border: none;
+  font-size: large;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}

@@ -1,0 +1,54 @@
+.task-ordered-list {
+  display: flex;
+  flex-direction: column;
+  margin: 10px auto;
+}
+
+.list-item-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 10px;
+}
+
+.task-name-container {
+  width: 900px;
+  /* background: rgb(153, 63, 51); */
+}
+
+.delete-button,
+.done-button,
+.edit-button,
+.save-button {
+  margin-left: 4px;
+  margin-right: 1px;
+  width: 50px;
+  padding: 5px;
+  border-radius: 15px;
+  border: none;
+}
+
+.hr-below-list-item {
+  width: 90vw;
+}
+
+.edit-input {
+  max-width: 850px;
+  height: 24px;
+  background: transparent;
+  border: 1px solid bisque;
+  color: bisque;
+  padding: 5px;
+  font-size: inherit;
+  font-family: inherit;
+  border-radius: 5px;
+  outline: none;
+  box-sizing: border-box;
+}
+
+/* Fix for the list item to keep things centered */
+.list-item {
+  list-style-position: inside; /* Keeps numbers aligned if using <ol> */
+  display: contents; /* 2026 trick: makes the li act as if it's not there so 
+                        the inner div can follow .list-item-container flex rules */
+}

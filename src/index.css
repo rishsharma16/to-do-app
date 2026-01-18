@@ -1,0 +1,11 @@
+* {
+  box-sizing: content-box;
+}
+
+body {
+  background: linear-gradient(to right, rgb(80, 106, 134), rgb(92, 93, 116));
+}
+
+button {
+  cursor: pointer;
+}

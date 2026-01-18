@@ -1,0 +1,42 @@
+.delete-all {
+  position: relative;
+  left: 92vw;
+  top: 1vh;
+  border: none;
+  padding: 8px;
+  border-radius: 20px;
+  transition: color 0.2s ease-in, background-color 0.2s ease-in;
+}
+
+.delete-all:hover {
+  color: wheat;
+  background-color: rgb(139, 32, 32);
+}
+
+.completed-task-items-wrapper ol {
+  margin: 20px 30px;
+}
+
+.completed-task-items-wrapper ol li {
+  margin-top: 30px;
+}
+
+.completed-task-card {
+  display: flex;
+  align-items: center;
+}
+
+.delete-completed-item {
+  width: 50px;
+  padding: 5px;
+  border-radius: 15px;
+  border: none;
+}
+
+.item-time-container {
+  width: 80vw;
+}
+
+.item-time-container li {
+  margin-top: 12px;
+}
