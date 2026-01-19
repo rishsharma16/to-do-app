@@ -46,9 +46,7 @@
   box-sizing: border-box;
 }
 
-/* Fix for the list item to keep things centered */
 .list-item {
-  list-style-position: inside; /* Keeps numbers aligned if using <ol> */
-  display: contents; /* 2026 trick: makes the li act as if it's not there so 
-                        the inner div can follow .list-item-container flex rules */
+  list-style-position: inside;
+  display: contents;
 }
