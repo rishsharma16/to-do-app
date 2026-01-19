@@ -24,7 +24,11 @@ export default function InputArea({
       setErrorMessage("No Value Entered. Enter Something");
       return;
     }
-    setTaskItems((prevItems) => [...prevItems, task]);
+    const taskCreatedAt = new Date().toLocaleString();
+    setTaskItems((prevItems) => [
+      ...prevItems,
+      { text: task, time: taskCreatedAt },
+    ]);
     setTask("");
     setPopFlag(true);
     setActiveTab("open");

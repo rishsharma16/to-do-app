@@ -13,19 +13,17 @@ export default function TaskAreaAll({
   const [editingIndex, setEditingIndex] = useState(null);
   const [editText, setEditText] = useState("");
 
-  useEffect(() => {
-    listEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [taskItems]);
-
-  function handleEditClick(index, currentText) {
+  function handleEditClick(index, taskItem) {
     setEditingIndex(index);
-    setEditText(currentText);
+    setEditText(taskItem.text);
   }
 
   function handleSaveEdit(index) {
-    const updatedTasks = [...taskItems];
-    updatedTasks[index] = editText;
-    setTaskItems(updatedTasks);
+    setTaskItems((prevItems) => {
+      const updatedTasks = [...prevItems];
+      updatedTasks[index] = { ...updatedTasks[index], text: editText };
+      return updatedTasks;
+    });
     setEditingIndex(null);
   }
 
@@ -41,19 +39,30 @@ export default function TaskAreaAll({
     const completedAt = new Date().toLocaleString();
     setDoneTaskItems((prevDone) => [
       ...prevDone,
-      { text: taskToMove, time: completedAt },
+      {
+        text: taskToMove.text,
+        time: completedAt,
+      },
     ]);
 
     setTaskItems((prevTasks) =>
       prevTasks.filter((_, index) => index !== indexDone)
     );
   }
+
+  useEffect(() => {
+    if (taskItems.length > prevItemsCount.current) {
+      listEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    }
+    prevItemsCount.current = taskItems.length;
+  }, [taskItems.length]);
+
   return (
     <>
       {taskItems.length === 0 ? (
         <h1>ADD TASK</h1>
       ) : (
-        <ol className="task-ordered-list">
+        <ol style={{ marginTop: "15px" }} className="task-ordered-list">
           {taskItems.map((taskItem, index) => (
             <li className="list-item-wrapper" key={index}>
               <div className="list-item-container">
@@ -69,7 +78,20 @@ export default function TaskAreaAll({
                       autoFocus
                     />
                   ) : (
-                    <span>{taskItem}</span>
+                    <>
+                      <span style={{ marginTop: "0px", marginBottom: "2px" }}>
+                        {taskItem.text}
+                      </span>
+                      <small
+                        style={{
+                          display: "block",
+                          fontSize: "10px",
+                          marginTop: "15px",
+                        }}
+                      >
+                        Created on: {taskItem.time}
+                      </small>
+                    </>
                   )}
                 </div>
 

@@ -8,12 +8,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 10px 10px;
+  margin: 1px 10px;
 }
 
 .task-name-container {
   width: 900px;
-  /* background: rgb(153, 63, 51); */
 }
 
 .delete-button,
